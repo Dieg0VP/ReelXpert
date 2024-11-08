@@ -1,0 +1,7 @@
+{
+  "name": "ReelXpert",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
