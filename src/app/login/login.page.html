@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>ReelXpert</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +10,20 @@
       <ion-title size="large">Login</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="content-container">
+    <div class="input-container">
+      <ion-item>
+        <ion-input placeholder="Correo electrónico" [(ngModel)]="email" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </div>
+  
+    <div class="button-container">
+      <ion-button expand="block" (click)="onLoginButtonPressed()">Login</ion-button>
+      <ion-button expand="block" (click)="onRegisterButtonPressed()">Register</ion-button>
+    </div>
+  </div>
 </ion-content>

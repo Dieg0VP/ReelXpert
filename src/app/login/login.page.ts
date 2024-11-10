@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CancelAlertService } from 'src/Services/CancelAlertService'; // Asegúrate de tener el servicio de alertas
+import { UserLoginUseCase } from 'src/app/Use-Case/user-login.use-case';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  email: string = '';
+  password: string = '';
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private userLoginUseCase: UserLoginUseCase,
+    private alert: CancelAlertService // Inyecta el servicio de alertas
+  ) {}
+
+  ngOnInit() {}
+
+  async onLoginButtonPressed() {
+    const result = await this.userLoginUseCase.performLogin(this.email, this.password);
+
+    if (result.success) {
+      this.alert.showAlert(
+        'Login exitoso',
+        'Has iniciado sesión correctamente.',
+        () => {
+          this.router.navigate(['/splash']); // Navegar a 'splash' cuando el usuario presiona "Aceptar"
+        }
+      );
+    } else {
+      this.alert.showAlert(
+        'Error',
+        result.message,
+        () => {
+          // Se puede agregar alguna lógica aquí si es necesario
+        }
+      );
+    }
   }
 
+  onRegisterButtonPressed() {
+    this.router.navigate(['/register']);
+  }
 }
