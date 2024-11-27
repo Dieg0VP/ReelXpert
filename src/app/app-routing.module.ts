@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'splash',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./modules/splash/splash.module').then( m => m.SplashPageModule)
   },
   {
     path: '',
@@ -13,17 +13,28 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./modules/login/login.module').then( m => m.LoginPageModule)
   }
   ,
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./modules/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'characters',
+    loadChildren: () => import('./modules/characters/characters.module').then( m => m.CharactersPageModule)
+  }
+
+
+
 ];
 
 @NgModule({

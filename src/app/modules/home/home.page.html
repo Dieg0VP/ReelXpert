@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onProfileButtonPressed()">
+        Profile
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Tarjeta fija con la información del usuario -->
+  <div class="user-info">
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img [src]="user?.photoURL || 'assets/default-avatar.png'" alt="Foto de perfil">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ user?.displayName || 'Nombre no disponible' }}</h2>
+            <p>Correo Electrónico: {{ user?.email }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Botón de Abrir Personajes -->
+  <ion-button
+    expand="block"
+    class="open-characters-button"
+    (click)="onCharactersPressed()">
+    Abrir Personajes
+  </ion-button>
+
+  <!-- Botón de Cerrar Sesión -->
+  <ion-button
+    expand="block"
+    class="close-session-button"
+    (click)="onSignOutButtonPressed()">
+    Cerrar Sesión
+  </ion-button>
+</ion-content>

@@ -50,3 +50,4 @@ export class RegisterPage {
     this.password = '';
   }
 }
+
