@@ -11,5 +11,6 @@ export const environment = {
   apiBaseUrl: "https://api.example.com",
   apiEndpoints: {
     rickAndMorty: "/rick-and-morty",
+     character: "/rick-and-morty/character"
   },
 }
